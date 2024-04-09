@@ -1,4 +1,4 @@
-const mongodb = require('mongodb');
+const mongodb = require('mongodb/lib/mongodb');
 const uri = process.env.MONGODB_URI;
 
 exports.handler = async (event, context) => {

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "netlify-lambda build netlify/functions",
+    "dev": "netlify-lambda serve netlify/functions"
+  },
+  "dependencies": {
+    "mongodb": "^6.5.0",
+    "netlify-lambda": "^2.0.16"
+  }
+}

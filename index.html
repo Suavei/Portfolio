@@ -186,41 +186,41 @@
             </div>
         </footer>
 
-<script>
-const form = document.querySelector('.contact__form');
-const functionUrl = '/.netlify/functions/submit-form';
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  const data = { name, email, message };
-
-  try {
-    const response = await fetch(functionUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      console.log(result.message);
-      form.reset();
-    } else {
-      console.error(result.error);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-});
-</script>
+        <script>
+        const form = document.querySelector('.contact__form');
+        const functionUrl = '/.netlify/functions/submit-form';
+        
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+        
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const message = document.getElementById('message').value;
+        
+          const data = { name, email, message };
+        
+          try {
+            const response = await fetch(functionUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+        
+            const result = await response.json();
+        
+            if (response.ok) {
+              console.log(result.message);
+              form.reset();
+            } else {
+              console.error(result.error);
+            }
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        });
+        </script>
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
