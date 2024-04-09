@@ -7,8 +7,8 @@ exports.handler = async (event) => {
 
   try {
     await client.connect();
-    const database = client.db('YOUR_DATABASE_NAME');
-    const collection = database.collection('YOUR_COLLECTION_NAME');
+    const database = client.db('mydb');
+    const collection = database.collection('test');
 
     const body = JSON.parse(event.body);
     const { name, email, message } = body;
