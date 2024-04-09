@@ -142,7 +142,7 @@
                         <span class="contact__text">BHOPAL (M.P.)</span>
                     </div>
 
-                    <form class="contact__form" netlify>
+                    <form id="contactForm" class="contact__form" netlify>
                         <div class="contact__inputs">
                             <input type="text" name="name" placeholder="Name" class="contact__input">
                             <input type="mail" name="email" placeholder="Email" class="contact__input">
@@ -187,39 +187,26 @@
         </footer>
 
         <script>
-        const form = document.querySelector('.contact__form');
-        const functionUrl = '/.netlify/functions/submit-form';
-        
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-        
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const message = document.getElementById('message').value;
-        
-          const data = { name, email, message };
-        
-          try {
-            const response = await fetch(functionUrl, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(data),
+            document.getElementById('contactForm').addEventListener('submit', async function(event) {
+              event.preventDefault();
+            
+              const formData = new FormData(this);
+              const formObject = {};
+              formData.forEach((value, key) => {
+                formObject[key] = value;
+              });
+            
+              const response = await fetch('/.netlify/functions/submitForm', {
+                method: 'POST',
+                body: JSON.stringify(formObject),
+              });
+            
+              const result = await response.json();
+              alert(result.message);
+            
+              // Optionally, reset the form after submission
+              this.reset();
             });
-        
-            const result = await response.json();
-        
-            if (response.ok) {
-              console.log(result.message);
-              form.reset();
-            } else {
-              console.error(result.error);
-            }
-          } catch (error) {
-            console.error('Error:', error);
-          }
-        });
         </script>
 
         <!--===== SCROLL REVEAL =====-->
