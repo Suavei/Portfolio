@@ -196,15 +196,14 @@
                 formObject[key] = value;
               });
             
-              const response = await fetch('/.netlify/functions/submitForm', {
+              const response = await fetch('/functions/submitForm.js', {
                 method: 'POST',
                 body: JSON.stringify(formObject),
               });
             
               const result = await response.json();
               alert(result.message);
-            
-              // Optionally, reset the form after submission
+        
               this.reset();
             });
         </script>
