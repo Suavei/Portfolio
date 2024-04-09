@@ -196,7 +196,7 @@
                 formObject[key] = value;
               });
             
-              const response = await fetch('/functions/submitForm.js', {
+              const response = await fetch('/functions/submitForm', {
                 method: 'POST',
                 body: JSON.stringify(formObject),
               });
