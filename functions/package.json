@@ -1,9 +1,0 @@
-{
-  "name": "netlify-functions",
-  "version": "1.0.0",
-  "description": "Netlify functions for handling form submissions",
-  "main": "submitForm.js",
-  "dependencies": {
-    "mongodb": "^6.5.0"
-  }
-}
