@@ -155,7 +155,7 @@
                         <span class="contact__text">vksonioffial@gmail.com</span>
 
                         <h3 class="contact__subtitle">PHONE</h3>
-                        <span class="contact__text">+91 9329463491</span>
+                        <span class="contact__text">+91 123-4567-890</span>
 
                         <h3 class="contact__subtitle">ADDRESS</h3>
                         <span class="contact__text">BHOPAL (M.P.)</span>
@@ -204,28 +204,6 @@
 
             </div>
         </footer>
-
-        <script>
-            document.getElementById('contactForm').addEventListener('submit', async function(event) {
-              event.preventDefault();
-            
-              const formData = new FormData(this);
-              const formObject = {};
-              formData.forEach((value, key) => {
-                formObject[key] = value;
-              });
-            
-              const response = await fetch('/functions/submitForm', {
-                method: 'POST',
-                body: JSON.stringify(formObject),
-              });
-            
-              const result = await response.json();
-              alert(result.message);
-        
-              this.reset();
-            });
-        </script>
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
